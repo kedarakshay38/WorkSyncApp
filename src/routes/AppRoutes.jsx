@@ -6,16 +6,19 @@ import Chat from "../pages/Chat";
 import Analytics from "../pages/Analytics";
 import Login from "../pages/Login";
 import MainLayout from "../layouts/Mainlayout";
+import ProtectedRoute from "./ProtectedRoute";
 function AppRoutes() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<MainLayout />}>
-          <Route index element={<Dashboard />} />
-          <Route path="projects" element={<Projects />} />
-          <Route path="tasks" element={<Tasks />} />
-          <Route path="chat" element={<Chat />} />
-          <Route path="analytics" element={<Analytics />} />
+        <Route element={<ProtectedRoute />}>
+          <Route path="/" element={<MainLayout />}>
+            <Route index element={<Dashboard />} />
+            <Route path="projects" element={<Projects />} />
+            <Route path="tasks" element={<Tasks />} />
+            <Route path="chat" element={<Chat />} />
+            <Route path="analytics" element={<Analytics />} />
+          </Route>
         </Route>
 
         <Route path="/login" element={<Login />} />
