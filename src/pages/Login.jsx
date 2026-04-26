@@ -23,7 +23,7 @@ function Login(){
             <h1 className="text-2xl font-bold mb-6 text-center">Login</h1>
             <input type="email" className="w-full p-3 mb-4 border rounded outline-none focus:border-blue-500" value={email} onChange={(e)=>setEmail(e.target.value)}  placeholder="email"/>
             <input type="password" className="w-full p-3 mb-4 border rounded outline-none focus:border-blue-500" value={password} onChange={(e)=>setPassword(e.target.value)} placeholder="password" />
-            <button className="bg-blue-500 text-white p-3 rounded hover:bg-blue-700 font-semibold">Submit</button>
+            <button  type="submit"  className="bg-blue-500 text-white p-3 rounded hover:bg-blue-700 font-semibold">Submit</button>
         </form>
         </div>
     )
