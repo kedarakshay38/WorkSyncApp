@@ -1,18 +1,13 @@
 import { useState } from "react";
 
-function CreateProjectModal({ onClose, onSubmit }) {
-  const [name, setName] = useState("");
+function CreateTaskModal({ onClose, onSubmit }) {
+  const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+  const [priority, setPriority] = useState("medium");
 
   function handleSubmit(e) {
     e.preventDefault();
-    onSubmit({
-      name,
-      description,
-      status: "active",
-      members: 1,
-      createdAt: new Date().toISOString().split("T")[0],
-    });
+    onSubmit({ title, description, priority, status: "todo" });
     onClose();
   }
 
@@ -20,23 +15,32 @@ function CreateProjectModal({ onClose, onSubmit }) {
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
       <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 w-full max-w-md">
         <h2 className="text-xl font-bold mb-4 text-gray-800 dark:text-white">
-          Create Project
+          Create Task
         </h2>
         <form onSubmit={handleSubmit}>
           <input
-            className="w-full p-3 mb-4 border dark:border-gray-700 rounded outline-none focus:border-blue-500 bg-white dark:bg-gray-700 text-gray-800 dark:text-white"
             type="text"
-            placeholder="Project Name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
+            className="w-full p-3 mb-4 border dark:border-gray-700 rounded outline-none focus:border-blue-500 bg-white dark:bg-gray-700 text-gray-800 dark:text-white"
+            placeholder="Title"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
           />
           <input
-            className="w-full p-3 mb-4 border dark:border-gray-700 rounded outline-none focus:border-blue-500 bg-white dark:bg-gray-700 text-gray-800 dark:text-white"
             type="text"
+            className="w-full p-3 mb-4 border dark:border-gray-700 rounded outline-none focus:border-blue-500 bg-white dark:bg-gray-700 text-gray-800 dark:text-white"
             placeholder="Description"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
           />
+          <select
+            value={priority}
+            className="w-full p-3 mb-4 border dark:border-gray-700 rounded outline-none focus:border-blue-500 bg-white dark:bg-gray-700 text-gray-800 dark:text-white"
+            onChange={(e) => setPriority(e.target.value)}
+          >
+            <option value="low">Low</option>
+            <option value="medium">Medium</option>
+            <option value="high">High</option>
+          </select>
           <div className="flex justify-end gap-2">
             <button
               type="button"
@@ -58,4 +62,4 @@ function CreateProjectModal({ onClose, onSubmit }) {
   );
 }
 
-export default CreateProjectModal;
+export default CreateTaskModal;
