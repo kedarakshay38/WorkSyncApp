@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState,useCallback } from "react";
 import { DragDropContext } from "@hello-pangea/dnd";
 import { mockTasks } from "../../services/mockData";
 import TaskColumn from "./TaskColumn";
@@ -12,11 +12,11 @@ function TaskBoard() {
   const inProgressTasks = tasks.filter((t) => t.status === "inprogress");
   const doneTasks = tasks.filter((t) => t.status === "done");
 
-  function handleAddTask(newTask) {
+  const handleAddTask = useCallback((newTask) => {
     setTasks([...tasks, { ...newTask, id: tasks.length + 1, projectId: 1 }]);
-  }
+  }, [tasks]);
 
-  function onDragEnd(result) {
+  const onDragEnd = useCallback((result) => {
     const { source, destination, draggableId } = result;
 
     if (!destination) return;
@@ -34,7 +34,9 @@ function TaskBoard() {
     );
 
     setTasks(updatedTasks);
-  }
+  }, [tasks]);
+
+
 
   return (
     <>
