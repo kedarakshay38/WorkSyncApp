@@ -30,8 +30,8 @@ function TaskStatusChart() {
 const COLORS = ["#facc15", "#a855f7", "#22c55e"]; // yellow, purple, green    
 // ResponsiveContainer — makes the chart fill its parent container (needed since charts need explicit width/height)
 
-return (  <div className="bg-white rounded-lg shadow p-6">                                                                                                                                                                                            
-    <h3 className="text-lg font-semibold mb-4">Tasks by Status</h3>                                                                                                                                                                           
+return (  <div className="bg-white dark:bg-gray-800 rounded-lg shadow p-6 transition-colors">
+    <h3 className="text-lg font-semibold mb-4 text-gray-800 dark:text-white">Tasks by Status</h3>                                                                                                                                                                           
     <ResponsiveContainer width="100%" height={300}>                                                                                                                                                                                           
       <PieChart>                                                                                                                                                                                                                              
         <Pie                                                                                                                                                                                                                                  

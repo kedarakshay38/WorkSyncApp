@@ -21,7 +21,7 @@ function Chat() {
 
   return (
     <div className="flex flex-col h-[calc(100vh-150px)] p-6">
-        <h1 className="text-2xl font-bold mb-4">Chat</h1>
+        <h1 className="text-2xl font-bold mb-4 text-gray-800 dark:text-white">Chat</h1>
         <ChatWindow messages={messages} />
         <ChatInput onSend={handleSend} />
     </div>

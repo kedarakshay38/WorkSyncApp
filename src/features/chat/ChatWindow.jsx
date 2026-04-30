@@ -10,7 +10,7 @@ function ChatWindow({ messages }) {
 
   return (
     //flex-1 Take equal available space inside a flex container
-    <div className="flex-1 overflow-y-auto p-4 bg-white rounded-lg">
+    <div className="flex-1 overflow-y-auto p-4 bg-white dark:bg-gray-800 rounded-lg transition-colors">
       {messages.map((msg) => (
         <MessageBubble key={msg.id} message={msg} />
       ))}
