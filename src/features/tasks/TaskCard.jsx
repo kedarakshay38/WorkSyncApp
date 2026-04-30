@@ -1,5 +1,5 @@
 import { Draggable } from "@hello-pangea/dnd";
-
+import { memo } from "react"
 function TaskCard({ task, index }) {
   const priorityColor =
     task.priority === "high"
@@ -28,4 +28,4 @@ function TaskCard({ task, index }) {
     </Draggable>
   );
 }
-export default TaskCard;
+export default  memo(TaskCard);
