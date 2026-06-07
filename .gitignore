@@ -11,6 +11,7 @@ node_modules
 dist
 dist-ssr
 *.local
+workSync.md
 
 # Editor directories and files
 .vscode/*
@@ -21,4 +22,12 @@ dist-ssr
 *.ntvs*
 *.njsproj
 *.sln
+*.md
 *.sw?
+
+# Playwright
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+/playwright/.auth/
